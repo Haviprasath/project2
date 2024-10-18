@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>play</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        button {
+            position: static;
+            padding: 20px;
+            font-size: 3em;
+            border-radius: 50%;
+            background-color: lightblue;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        #result{
+            font-size: 3em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rock-paper-Scissors</h1>
+    <div id="choices">
+        <button onclick="playGame('rock')">👊</button>
+        <button onclick="playGame('paper')">✋</button>
+        <button onclick="playGame('scissor')">✌️</button>
+    </div>
+
+    <div id="playerdisplay">Player:</div>
+    <div id="computerdisplay">Computer: </div>
+    <div id="result">You WIN!</div>
+    <div id="human">Playerscore:</div>
+    <div id="machine">computerscore:</div>
+
+    <script>
+       const playerdisplay=document.getElementById("playerdisplay");
+       const computerdisplay=document.getElementById("computerdisplay");
+       const human=document.getElementById("human");
+       const machine=document.getElementById("machine");
+       const result=document.getElementById("result");
+        let Playerscore=0;
+        let computerscore=0;
+        let value;
+        function playGame(input) {
+            let random = Math.floor(Math.random() * 3 + 1);
+            let img;
+            let show='';
+            if(random==1){
+                img='rock';
+            }
+            else if(random==2){
+                img='paper';
+            }
+            else{
+                img='scissor';
+            }
+            switch (input) {
+                case 'rock':
+                    value = 1;
+                    if(random==2){
+                        computerscore++;
+                        if(Playerscore>0){
+                            Playerscore--;
+                        }
+                        show="you lose";
+                    }
+                    else if(random==3){
+                        if(computerscore>0){
+                            computerscore--;
+                        }
+                       
+                        Playerscore++;
+                        show="you win!"
+                    }
+                    else{
+                        show="Tie";
+                    }
+                    break;
+
+                case 'paper':
+                    value = 2;
+                    if(random==1){
+                        Playerscore++;
+                         if(computerscore>0){
+                            computerscore--;
+                        }
+                         show="you win!"
+                    }
+                    else if(random==3){
+                        computerscore++;
+
+                        if(Playerscore>0){
+                        Playerscore--;
+                        }
+                        show="you lose";
+                    }
+                    else{
+                        show="Tie";
+                    }
+                    
+                    break;
+                case 'scissor':
+                    value=3;
+                    if(random==1){
+                        computerscore++;
+                       if(Playerscore>0){
+                        Playerscore--;
+                        }
+                        show="you lose";
+                    }
+                    else if(random==2){
+                        Playerscore++;
+                        if(computerscore>0){
+                            computerscore--;
+                        }
+                         show="you win!"
+                    }
+                    else{
+                        show="Tie";
+                    }
+                    break;
+               
+            }
+            playerdisplay.textContent="Player:"+input;
+            computerdisplay.textContent="computer:"+img;
+            human.textContent="Player score :"+Playerscore;
+            machine.textContent="computer score:"+computerscore;
+            result.textContent=show;
+        }
+        
+    </script>
+</body>
+
+</html>

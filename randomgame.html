@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random play</title>
+    <style>
+        .box{
+            height: 300px;
+            width: 400px;
+            margin: auto;
+            background-color: aliceblue;
+            border: 10px 10px yellow;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <h2>Guess the number from 1 to 10</h2>
+    <input type="text" id="num">
+    <button type="button" onclick="check()">check</button>
+    <p id="one">you are right/wrong</p>
+    <p id="two">your score:10</p>
+    </div>
+    <script>
+         let score=10;
+        function check(){
+            let num=Number(document.getElementById("num").value);
+           
+            let a=Math.random();
+            let random=Math.floor(a*10)+1;
+            if(random==num){
+              document.getElementById("one").innerHTML="you are right";
+              document.getElementById("two").innerHTML="your score: "+score;
+                alert("you won...");
+            }
+            else{
+                score--;
+               document.getElementById("one").innerHTML="you are wrong !";
+               document.getElementById("two").innerHTML="your score: "+score;
+
+            }
+        }
+    </script>
+</body>
+</html>

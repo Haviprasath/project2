@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookskyproject</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: lightcoral;
+            padding: 10px;
+        }
+
+        .container {
+            margin: 20px;
+            background-color: black;
+            color: white;
+            display: inline-block;
+            text-align: justify;
+            padding: 20px;
+            width: 300px;
+
+        }
+
+        h2 {
+            color: lightcoral;
+        }
+
+        button {
+            background-color: lightcoral;
+            color: color;
+            border-radius: 6px;
+            padding: 5px;
+
+        }
+
+        .addbook {
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+
+        }
+
+        .addbook button {
+            padding: 20px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            border: none;
+        }
+
+        .popupwindow {
+            display: none;
+            background-color: lightcoral;
+            color: black;
+            position: fixed;
+            left: 30%;
+            top: 50%;
+            padding: 10px;
+
+
+
+        }
+
+        .popupwindow button {
+            padding: 10px;
+            color: white;
+            background-color: black;
+            margin-left: 20px;
+
+        }
+
+        .popupwindow input {
+            background-color: lightcoral;
+            display: block;
+            margin: 10px;
+            padding: 10px;
+
+        }
+
+        #title,
+        #author {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: solid black;
+        }
+
+        #descripe {
+            border: solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Booksky</h1>
+    <div class="container" >
+        <h2 >Rich Dad Poor Dad</h2>
+        <h3>john</h3>
+        <p >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit quibusdam saepe id. Tempore aperiam magni
+            quisquam eius aliquam animi perspiciatis reprehenderit, laborum aliquid placeat quaerat libero illo error
+            inventore, labore harum consequuntur quidem natus, quo ab molestiae! Porro maxime iure perspiciatis,
+            molestiae, eos accusantium impedit quam maiores incidunt a eius!</p>
+        <button onclick="del(event)">Delete</button>
+    </div>
+
+
+    <div class="addbook">
+        <button onclick="popup()">+</button>
+
+    </div>
+
+    <div class="popupwindow" id="popupcontainer">
+        <h1>Add book</h1>
+        <input type="text"  id="title" placeholder="Book Title">
+        <input type="text"  id="author" placeholder="Book Author">
+        <input type="text"  id="descripe" placeholder="Short Description...">
+        <button onclick="add()">ADD</button>
+        <button onclick="closed()">CANCEL</button>
+    </div>
+
+    <script>
+        function popup() {
+            let popupcontainer=document.getElementById("popupcontainer");
+            popupcontainer.style.display="block";
+            console.log(popupcontainer);
+
+        }
+        function closed(){
+            let popupcontainer=document.getElementById("popupcontainer");
+          
+            popupcontainer.style.display="none";
+            console.log(popupcontainer);
+        }
+
+        function add() {
+            let title = document.getElementById("title");
+            let author = document.getElementById("author");
+            let descripe = document.getElementById("descripe");
+            let container=document.querySelector(".container");
+
+            let div=document.createElement("div");
+            let h2=document.createElement("h2");
+            let h3=document.createElement("h3");
+            let p=document.createElement("p");
+            let btn=document.createElement("button");
+            div.setAttribute("class","container");
+            container.insertAdjacentElement("afterend",div);
+
+            h2.textContent=title.value;
+            h3.textContent=author.value;
+            p.textContent=descripe.value;
+            btn.innerHTML="Delete";
+            btn.setAttribute("onclick","del(event)")
+
+             div.appendChild(h2);
+             div.appendChild(h3);
+             div.appendChild(p);
+             div.appendChild(btn);
+
+            console.log(title.value);
+             
+
+        }
+        function del(event){
+            console.log(event.target.parentElement.remove());
+            
+        }
+       
+    </script>
+</body>
+
+</html>

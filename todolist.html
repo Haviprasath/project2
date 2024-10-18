@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="txt">
+    <button onclick="adddElement()" >Add</button>
+    <ul class="demo">
+        <li >hello
+        <button onclick="deleteElement(event)" >delete</button></li>
+    </ul>
+    
+
+    <script>
+
+let demo=document.querySelector(".demo");
+
+function adddElement(){
+    let txt=document.getElementById("txt");
+    let value=txt.value;
+    let list=document.createElement("li");
+    list.textContent=value;
+    demo.insertAdjacentElement("beforeend",list);
+
+    let button=document.createElement("button");
+    button.textContent="delete";
+    button.setAttribute("onclick","deleteElement(event)");
+    list.append(button);
+}
+function deleteElement(event){
+  // let li= demo.querySelectorAll("li");
+   
+   //for(let i=0;i<li.length;i++){
+    //console.log(li[i]);
+   //}
+    //let btn=document.querySelector("button");
+
+  let li=event.target.parentElement;
+  li.remove();
+
+
+}
+    </script>
+</body>
+</html>
