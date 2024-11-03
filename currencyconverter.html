@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>currencyconverter</title>
+    <script src="currency.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: sandybrown;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+
+        }
+
+        .container {
+
+            background-color: black;
+            display: flex;
+          height: 40vh;
+          width: 80vw;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+         
+            /* margin-top: 30vh; */
+        }
+
+        h1 {
+            color: sandybrown;
+            display: block;
+        }
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+         
+        }
+        .left_box{
+            display: flex;
+            flex-direction: column;
+        
+        }
+        .right_box{
+            display: flex;
+            flex-direction: column;
+           
+        }
+        button {
+            background-color: sandybrown;
+            padding: 10px;
+            font-weight: bold;
+            color: aliceblue;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: large;
+        }
+        select{
+            margin: 10px;
+            font-size: large;
+            background-color: sandybrown;
+            text-align: center;
+        }
+        input{
+            margin: 10px;
+            font-size: large;
+            background-color: seashell;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Currency Converter</h1>
+        <div class="box">
+            <div class="left_box">
+                <select name="" id="drop_down">
+                   
+                </select>
+                <input type="text" id="currency">
+            </div>
+            <div class="right_box">
+                <select name="" id="drop_down"></select>
+                    <input type="text" readonly id="result">
+            </div>
+            <button id="btn">Convert</button>
+        </div>
+    </div>
+</body>
+
+</html>
